@@ -283,3 +283,30 @@ include "template/footer.php";
 ## 7) membuat modul artikel
 ### Modul: `artikel/index.php`
 Menampilkan seluruh data;
+```python
+<?php
+$db = new Database();
+$data = $db->query("SELECT * FROM artikel");
+?>
+
+<h2>Daftar Artikel</h2>
+
+<table border="1" width="100%" cellpadding="6">
+    <tr>
+        <th>ID</th>
+        <th>Judul</th>
+        <th>Aksi</th>
+    </tr>
+
+    <?php while ($row = $data->fetch_assoc()) { ?>
+    <tr>
+        <td><?= $row['id'] ?></td>
+        <td><?= $row['judul'] ?></td>
+        <td>
+            <a href="/Lab11Web/artikel/ubah?id=<?= $row['id'] ?>">Ubah</a>
+        </td>
+    </tr>
+    <?php } ?>
+</table>
+```
+<img width="1919" height="353" alt="image" src="https://github.com/user-attachments/assets/0dd7a179-832f-4811-ab7f-d9d6ef703bdc" />
