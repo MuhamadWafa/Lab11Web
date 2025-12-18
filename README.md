@@ -4,7 +4,7 @@
 # TI.24.A4
 # Agung Nugroho, S.Kom., M.Kom.
 
-## Struktur Folder
+## 1) Struktur Folder
 ```
 lab11_php_oop/
 ├── .htaccess
@@ -26,7 +26,7 @@ lab11_php_oop/
 ```
 <img width="223" height="233" alt="image" src="https://github.com/user-attachments/assets/3c31a51b-fe3b-4f00-bf47-c3c981ade92e" />
 
-## Konfigurasi Routing-Htaccess
+## 2) Konfigurasi Routing-Htaccess
 Saya membuat file .htaccess agar URL bisa diakses seperti:
 
 `localhost/lab11_php_oop/artikel/tambah`
