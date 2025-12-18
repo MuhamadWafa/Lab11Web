@@ -368,7 +368,9 @@ $form->displayForm();
 ?>
 ```
 <img width="1919" height="372" alt="image" src="https://github.com/user-attachments/assets/ce129690-3cd4-431e-bc03-29fa374a90d9" />
+
 ## 8.  Database MySQL (artikel.sql)
+
 ```python
 CREATE TABLE artikel (
     id INT AUTO_INCREMENT PRIMARY KEY,
