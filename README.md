@@ -220,7 +220,7 @@ class Form
 }
 ?>
 ```
-## router utama, index.php
+## 4) router utama, index.php
 File index.php berfungsi sebagai front controller (router):
 ```python
 <?php
@@ -250,3 +250,5 @@ if (file_exists($file)) {
 
 include "template/footer.php";
 ```
+## membuat template (header,footer)
+**header**
