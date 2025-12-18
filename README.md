@@ -25,3 +25,8 @@ lab11_php_oop/
     └── sidebar.php
 ```
 <img width="223" height="233" alt="image" src="https://github.com/user-attachments/assets/3c31a51b-fe3b-4f00-bf47-c3c981ade92e" />
+
+## Konfigurasi Routing-Htaccess
+Saya membuat file .htaccess agar URL bisa diakses seperti:
+
+`localhost/lab11_php_oop/artikel/tambah`
