@@ -310,3 +310,84 @@ $data = $db->query("SELECT * FROM artikel");
 </table>
 ```
 <img width="1919" height="353" alt="image" src="https://github.com/user-attachments/assets/0dd7a179-832f-4811-ab7f-d9d6ef703bdc" />
+
+### Modul: artikel/tambah.php
+Form menambah data artikel:
+```python
+<?php
+$db = new Database();
+$form = new Form("/lab11_php_oop/artikel/tambah", "Simpan");
+
+if ($_POST) {
+    $data = [
+        'judul' => $_POST['judul'],
+        'isi' => $_POST['isi']
+    ];
+
+    $db->insert("artikel", $data);
+    echo "<p style='color:green'>Artikel berhasil ditambahkan!</p>";
+}
+?>
+
+<h2>Tambah Artikel</h2>
+
+<?php
+$form->addField("judul", "Judul Artikel");
+$form->addField("isi", "Isi Artikel", "textarea");
+$form->displayForm();
+?>
+```
+
+<img width="1919" height="493" alt="image" src="https://github.com/user-attachments/assets/ae1530d6-a194-4183-9464-4cddcdc5fea2" />
+
+### Modul: artikel/ubah.php
+```python
+<?php
+$db = new Database();
+
+$id = $_GET['id'];
+$old = $db->get("artikel", "id=$id");
+
+$form = new Form("/Lab11Web/artikel/ubah?id=$id", "Update");
+
+if ($_POST) {
+    $data = [
+        'judul' => $_POST['judul'],
+        'isi' => $_POST['isi']
+    ];
+    $db->update("artikel", $data, "id=$id");
+    echo "<p style='color:green'>Artikel berhasil diperbarui!</p>";
+}
+?>
+
+<h2>Ubah Artikel</h2>
+<?php
+$form->addField("judul", "Judul", "text");
+$form->addField("isi", "Isi", "textarea");
+$form->displayForm();
+?>
+```
+<img width="1919" height="372" alt="image" src="https://github.com/user-attachments/assets/ce129690-3cd4-431e-bc03-29fa374a90d9" />
+## 8.  Database MySQL (artikel.sql)
+```python
+CREATE TABLE artikel (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    judul VARCHAR(255),
+    isi TEXT
+);
+```
+<img width="643" height="353" alt="image" src="https://github.com/user-attachments/assets/91214ef6-c7f9-4847-910d-2920436a5201" />
+
+## 9) kesimpulan praktikum
+Praktikum ini berhasil mengimplementasikan sistem pengelolaan konten (CMS) sederhana dengan konsep Model-View-Controller (MVC) manual. Poin-poin utamanya adalah:
+
+Penerapan OOP: Penggunaan class Database dan Form mempermudah pengelolaan kode (reusable code). Operasi database (Insert, Update, Select) dan pembuatan form dilakukan melalui objek sehingga kode lebih bersih dan terstruktur.
+
+Modular Routing: File index.php bertindak sebagai Front Controller yang mengatur pemanggilan modul berdasarkan URL. Hal ini memungkinkan pemisahan logika antara modul artikel, home, dan tampilan template.
+
+Optimasi URL: Penggunaan file .htaccess dan RewriteEngine berhasil mengubah URL mentah menjadi Friendly URL, sehingga navigasi menjadi lebih rapi (contoh: dari index.php?mod=artikel menjadi /artikel/index).
+
+Efisiensi Pengembangan: Dengan sistem template (header/footer), perubahan pada tata letak cukup dilakukan di satu file saja tanpa harus mengubah setiap halaman modul.
+
+
+
